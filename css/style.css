@@ -6,15 +6,26 @@ body {
 }
 
 p {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   color: #848484;
-  font-size: 16px;
+  font-size: 14px;
 }
+
+.indent{
+  text-indent: 1em;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Catamaran", sans-serif;
   font-weight: 600;
 }
+
+.about-h {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
 
 .no-padding {
   padding: 0 !important;
@@ -89,6 +100,8 @@ a:focus, a:hover {
 .mt-20 {
   margin-top: 20px;
 }
+
+
 
 .mt-30 {
   margin-top: 30px;
