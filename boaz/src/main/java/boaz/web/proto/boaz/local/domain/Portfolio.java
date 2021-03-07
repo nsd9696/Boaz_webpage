@@ -1,4 +1,4 @@
-package boaz.web.proto.boaz.domain;
+package boaz.web.proto.boaz.local.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 

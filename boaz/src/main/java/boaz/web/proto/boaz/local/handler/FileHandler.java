@@ -1,4 +1,4 @@
-package boaz.web.proto.boaz.handler;
+package boaz.web.proto.boaz.local.handler;
 
 public class FileHandler {
     //local 기준
@@ -8,7 +8,6 @@ public class FileHandler {
     // return 이미지 파일이 저장된 주소를 반환
 
     //server기준으로는 그냥 저장하고 경로 보내주기
-    // s3에 저장하면 
+    // s3에 저장하면
     // 파일이 해당서버에 존재하는지 확인
-
 }

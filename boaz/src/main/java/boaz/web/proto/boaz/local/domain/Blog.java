@@ -1,4 +1,4 @@
-package boaz.web.proto.boaz.domain;
+package boaz.web.proto.boaz.local.domain;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Blog {
     private Long id;
     private String title;
     private String author;
-    private MultipartFile thumbnail; 
+    private MultipartFile thumbnail;
     private List<String> tags;
     private String ckEditor;
 }
