@@ -1,5 +1,6 @@
 package boaz.web.proto.boaz.local.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,4 +21,14 @@ public class BlogDto {
     private MultipartFile thumbnail;
     private List<String> tags; // , 연결해서 진행
     private String ckEditor;
+
+    @Builder
+    public BlogDto(Long id, String title, String author, MultipartFile thumbnail, List<String> tags, String ckEditor) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.thumbnail = thumbnail;
+        this.tags = tags;
+        this.ckEditor = ckEditor;
+    }
 }

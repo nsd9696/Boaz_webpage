@@ -1,22 +1,23 @@
 package boaz.web.proto.boaz.local.domain;
 
 import lombok.Builder;
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @NoArgsConstructor
-public class Portfolio {
+public class PortfolioDto {
     private String title;
     private String slideShareUrl;
     private String youtubeUrl;
     private String session;
     private String ckEditor;
-    private String file;
+    private MultipartFile file;
 
     @Builder
-    public Portfolio(String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, String file) {
+    public PortfolioDto(String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, MultipartFile file) {
         this.title = title;
         this.slideShareUrl = slideShareUrl;
         this.youtubeUrl = youtubeUrl;

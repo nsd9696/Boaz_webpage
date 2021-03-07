@@ -2,6 +2,7 @@ package boaz.web.proto.boaz.local.domain;
 
 import java.util.List;
 
+import lombok.Builder;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -25,4 +26,14 @@ public class Blog {
     private String thumbnail_src;
     private String tags;
     private String ckEditor;
+
+    @Builder
+    public Blog(Long id, String title, String author, String thumbnail_src, String tags, String ckEditor) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.thumbnail_src = thumbnail_src;
+        this.tags = tags;
+        this.ckEditor = ckEditor;
+    }
 }
