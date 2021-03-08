@@ -1,5 +1,6 @@
 package boaz.web.proto.boaz.view;
 
+import boaz.web.proto.boaz.local.domain.PortfolioDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,14 +21,15 @@ public class PortFolioController {
     }
 
     //이 부분 DB활용 필요
-    @GetMapping("/{id}")
+    @GetMapping("/detail")
     public String PortfolioDetailPage(@PathVariable String id) {
         // 해당 ID인 portfolio 불러오기
         return "portfolio_detail";
     }
 
     @PostMapping("/post")
-    public String UploadPortfolio(@RequestBody Blog blog ){
+    public String UploadPortfolio( PortfolioDto portfolioDto){
+        System.out.println(portfolioDto.toString());
         return "portfolio";
     }
 

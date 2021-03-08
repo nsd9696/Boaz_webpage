@@ -3,11 +3,17 @@ package boaz.web.proto.boaz.local.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
 
 @Data
+@Entity
 @NoArgsConstructor
 public class Portfolio {
+    @Id
     private String title;
     private String slideShareUrl;
     private String youtubeUrl;
