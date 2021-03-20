@@ -19,10 +19,10 @@ public class ConferenceService {
         this.conferenceRepository = conferenceRepository;
     }
 
-    public List<Conference> getConferenceList(int page, BoazSession session) {
+    public List<Conference> getList(int page, BoazSession session) {
     }
 
-    public Conference getConferenceById(long id) {
+    public Conference getById(long id) {
     }
 
     /**
@@ -30,10 +30,10 @@ public class ConferenceService {
      * @param conference
      * @return isSuccess
      */
-    public boolean saveConference(Conference conference) {
+    public boolean save(Conference conference) {
     }
 
-    public boolean updadeConference(Conference conference) {
+    public boolean update(Conference conference) {
     }
 
     public boolean deleteConferenceById(long id) {
