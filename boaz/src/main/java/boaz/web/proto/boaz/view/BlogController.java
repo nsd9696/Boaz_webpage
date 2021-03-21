@@ -5,6 +5,7 @@ import boaz.web.proto.boaz.local.domain.BlogDto;
 import boaz.web.proto.boaz.local.service.BlogLocalService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/blog")
 public class BlogController {
-    
+
     @Autowired
     private BlogLocalService blogLocalService;
 
@@ -25,12 +27,19 @@ public class BlogController {
     public String BlogPage(Model model) {
         List<Blog> blogList = blogLocalService.getBlogList();
         model.addAttribute(blogList);
+
         return "blog";
     }
 
-    @GetMapping("/detail")
-    public String BlogDetailPage() {
-        return "blog_detail";
+    @GetMapping("/{idx}")
+    public ModelAndView BlogPage(@PathVariable("idx") Long blogId){
+        Optional<Blog> blog = blogLocalService.getBlog(blogId);
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("blog_detail");
+        mav.addObject("blog",blog.orElse(null));
+
+        return mav;
     }
 
     @PostMapping("/post")
