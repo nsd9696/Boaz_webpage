@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -14,6 +16,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Portfolio {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String slideShareUrl;
     private String youtubeUrl;
@@ -22,7 +26,8 @@ public class Portfolio {
     private String file;
 
     @Builder
-    public Portfolio(String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, String file) {
+    public Portfolio(Long id, String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, String file) {
+        this.id = id;
         this.title = title;
         this.slideShareUrl = slideShareUrl;
         this.youtubeUrl = youtubeUrl;

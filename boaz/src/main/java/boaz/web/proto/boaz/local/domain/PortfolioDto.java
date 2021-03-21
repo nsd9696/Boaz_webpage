@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class PortfolioDto {
+    private Long id;
     private String title;
     private String slideShareUrl;
     private String youtubeUrl;
@@ -17,7 +18,8 @@ public class PortfolioDto {
     private MultipartFile file;
 
     @Builder
-    public PortfolioDto(String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, MultipartFile file) {
+    public PortfolioDto(Long id, String title, String slideShareUrl, String youtubeUrl, String session, String ckEditor, MultipartFile file) {
+        this.id = id;
         this.title = title;
         this.slideShareUrl = slideShareUrl;
         this.youtubeUrl = youtubeUrl;
