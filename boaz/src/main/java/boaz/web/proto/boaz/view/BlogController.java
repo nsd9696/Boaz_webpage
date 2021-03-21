@@ -5,15 +5,16 @@ import boaz.web.proto.boaz.local.domain.BlogDto;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import boaz.web.proto.boaz.local.service.BlogLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import static java.util.Objects.isNull;
 
 @Controller
 @RequestMapping("/blog")
@@ -23,15 +24,22 @@ public class BlogController {
     private BlogLocalService blogLocalService;
 
     @GetMapping("")
-    public String BlogPage(Model model) {
-        List<Blog> blogList = blogLocalService.getBlogList();
-        model.addAttribute(blogList);
-        return "blog";
-    }
+        public String BlogPage(Model model) {
+            List<Blog> blogList = blogLocalService.getBlogList();
+            model.addAttribute(blogList);
 
-    @GetMapping("/detail")
-    public String BlogDetailPage() {
-        return "blog_detail";
+            return "user/blog";
+        }
+
+        @GetMapping("/{idx}")
+        public ModelAndView BlogPage(@PathVariable("idx") Long blogId){
+            Optional<Blog> blog = blogLocalService.getBlog(blogId);
+
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("user/blog_detail");
+            mav.addObject("blog",blog.orElse(null));
+
+        return mav;
     }
 
     @PostMapping("/post")
@@ -52,6 +60,56 @@ public class BlogController {
             System.out.println("falseddddddd");
         }
 
-        return "/blog";
+        blogLocalService.insertBlog(blogDto);
+
+        return "user/blog";
     }
+
+    @GetMapping("/modify/{idx}")
+    public ModelAndView BlogModifyPage(@PathVariable("idx") Long blogId) {
+        Optional<Blog> blog = blogLocalService.getBlog(blogId);
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("user/blog_detail");
+        mav.addObject("blog", blog.orElse(null));
+
+        return mav;
+    }
+
+    @PostMapping("/modify")
+    public String BlogModifyPage(BlogDto blogDto){
+        try {
+            System.out.println(blogDto.toString());
+            String tags = String.join(" ", blogDto.getTags());
+            //file 저장하기
+            Blog blog = Blog.builder()
+                    .author(blogDto.getAuthor())
+                    .ckEditor(blogDto.getCkEditor())
+                    .id(1L)
+                    .tags(tags)
+                    .thumbnail_src("")
+                    .title(blogDto.getTitle())
+                    .build() ;
+        }catch(Exception e){
+            System.out.println("falseddddddd");
+        }
+
+        return "user/blog";
+    }
+
+    @DeleteMapping("/delete/{idx}")
+    public String DeleteBlogPage(@PathVariable("idx") Long blogId){
+        Optional<Blog> blog = blogLocalService.getBlog(blogId);
+
+        if (isNull(blog)){
+            System.out.println("cannot find blog");
+            return "user/blog";
+        }
+
+        blogLocalService.deleteBlog(blogId);
+
+        return "user/blog";
+    }
+
+
 }
