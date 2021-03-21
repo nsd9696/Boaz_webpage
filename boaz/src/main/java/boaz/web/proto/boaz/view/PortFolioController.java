@@ -17,20 +17,20 @@ public class PortFolioController {
     @GetMapping("")
     public String PortfolioPage(){
         //이 부분에 Portfolio 리스트 불러오기
-        return "portfolio";
+        return "user/portfolio";
     }
 
     //이 부분 DB활용 필요
     @GetMapping("/detail")
     public String PortfolioDetailPage(@PathVariable String id) {
         // 해당 ID인 portfolio 불러오기
-        return "portfolio_detail";
+        return "user/portfolio_detail";
     }
 
     @PostMapping("/post")
     public String UploadPortfolio( PortfolioDto portfolioDto){
         System.out.println(portfolioDto.toString());
-        return "portfolio";
+        return "user/portfolio";
     }
 
 }

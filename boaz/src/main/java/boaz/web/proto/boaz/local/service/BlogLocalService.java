@@ -10,6 +10,7 @@ import boaz.web.proto.boaz.local.repository.BlogJPARepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,27 @@ public class BlogLocalService implements BlogServiceImpl {
     }
 
     public void insertBlog(BlogDto blogDto){
+        String fileSrc =  fileHandler.saveImage("test",blogDto.getThumbnail());
+        Blog blog = Blog.builder()
+                .author(blogDto.getAuthor())
+                .tags(blogDto.getTags().toString())
+                .id(blogDto.getId())
+                .ckEditor(blogDto.getCkEditor())
+                .thumbnail_src(fileSrc)
+                .title(blogDto.getTitle())
+                .build();
+        blogJPARepository.save(blog);
+    }
+
+    public void deleteBlog(Long id){
+        try {
+            blogJPARepository.deleteById(id);
+        } catch (Exception e) {
+            System.out.println("\n >> " + e.toString() + "\n >> There isn't a blog no." + id);
+        }
+    }
+
+    public void modify(BlogDto blogDto){
         String fileSrc =  fileHandler.saveImage("test",blogDto.getThumbnail());
         Blog blog = Blog.builder()
                 .author(blogDto.getAuthor())
