@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import boaz.web.proto.boaz.impl.service.BlogServiceImpl;
 import boaz.web.proto.boaz.local.domain.Blog;
 import boaz.web.proto.boaz.local.repository.BlogJPARepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class BlogLocalService implements BlogServiceImpl {
 
     @Autowired
