@@ -28,9 +28,10 @@ public class BlogLocalService implements BlogServiceImpl {
 
     public void insertBlog(BlogDto blogDto){
         String fileSrc =  fileHandler.saveImage("test",blogDto.getThumbnail());
+        String tags = String.join(",",blogDto.getTags());
         Blog blog = Blog.builder()
                 .author(blogDto.getAuthor())
-                .tags(blogDto.getTags().toString())
+                .tags(tags)
                 .id(blogDto.getId())
                 .ckEditor(blogDto.getCkEditor())
                 .thumbnail_src(fileSrc)
