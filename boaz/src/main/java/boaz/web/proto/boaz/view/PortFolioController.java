@@ -17,7 +17,7 @@ import static java.util.Objects.isNull;
 
 @Controller
 @RequestMapping("/portfolio")
-public class PortfolioController {
+public class PortFolioController {
 
     @Autowired
     private PortfolioLocalService portfolioLocalService;
