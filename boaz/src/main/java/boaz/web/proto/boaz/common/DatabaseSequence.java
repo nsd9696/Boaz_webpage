@@ -12,7 +12,6 @@ import java.util.Objects;
 @Entity
 public class DatabaseSequence{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private long seq;
 
