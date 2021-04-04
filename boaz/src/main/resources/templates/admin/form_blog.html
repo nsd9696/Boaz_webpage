@@ -32,9 +32,9 @@
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
   <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-      <script src="js/lte-ie7.js"></script>
+      <script src="js/admin/html5shiv.js"></script>
+      <script src="js/admin/respond.min.js"></script>
+      <script src="js/admin/lte-ie7.js"></script>
     <![endif]-->
 
   <!-- =======================================================
@@ -165,15 +165,15 @@
                 <form role="form">
                   <div class="form-group">
                     <label for="Title">Title</label>
-                    <input type="text" class="form-control" id="titleId" placeholder="제목을 입력하세요">
+                    <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
                   </div>
                   <div class="form-group">
                     <label for="Author">Author</label>
-                    <input type="text" class="form-control" id="authorId" placeholder="작성자를 입력하세요">
+                    <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Thumbnail</label>
-                    <input type="file" id="inputFileId">
+                    <label for="InputFile">Thumbnail</label>
+                    <input type="file" id="inputFile">
                   </div>
                 </form>
 
@@ -217,7 +217,7 @@
             </div>
           </div>
         </div>
-        
+
         <section class="panel">
           <header class="panel-heading">
             Submit
@@ -284,7 +284,7 @@
     // jQuery(window).load(function(){
     //   CKEDITOR.instances["ckEditor"].setData("<p> 안내문구 </p>");
     // });
-    
+
     // 버튼 누르면 글 등록하는 함수
     $(function () {
       $("button").click(function () {

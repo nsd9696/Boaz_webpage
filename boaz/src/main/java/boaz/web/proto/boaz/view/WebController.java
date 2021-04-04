@@ -17,16 +17,16 @@ public class WebController {
         return "user/index";
     }
 
-    @GetMapping("about")
+    @GetMapping("/about")
     public String AboutPage(){
         return "user/about";
     }
-    @GetMapping("service")
+    @GetMapping("/service")
     public String ServicePage(){
         return "user/service";
     }
 
-    @GetMapping("team")
+    @GetMapping("/team")
     public String TeamPage(){
         return "user/team";
     }

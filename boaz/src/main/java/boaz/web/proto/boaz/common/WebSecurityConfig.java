@@ -41,7 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/blog/**").hasAuthority("ROLE_MANAGER")
                 .antMatchers(HttpMethod.DELETE,"/portfolio/**").hasAuthority("ROLE_MANAGER")
                 .antMatchers(HttpMethod.POST,"/portfolio/**").hasAuthority("ROLE_MANAGER")
-
+                .antMatchers(HttpMethod.DELETE,"/blog/**").hasAuthority("ROLE_MANAGER")
+                .antMatchers(HttpMethod.POST,"/admin/**").hasAuthority("ROLE_MANAGER")
+                .antMatchers(HttpMethod.DELETE,"/admin/**").hasAuthority("ROLE_MANAGER")
                 .anyRequest().authenticated();
     }
 }
