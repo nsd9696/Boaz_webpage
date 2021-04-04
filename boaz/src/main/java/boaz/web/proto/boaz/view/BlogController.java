@@ -7,6 +7,7 @@ import boaz.web.proto.boaz.local.domain.BlogDto;
 import java.util.List;
 import java.util.Optional;
 
+import boaz.web.proto.boaz.local.handler.DbHandler;
 import boaz.web.proto.boaz.local.service.BlogLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,10 @@ public class BlogController {
 
     @Autowired
     private BlogLocalService blogLocalService;
+    @Autowired
+    private DbHandler dbHandler;
+
+
 
     @GetMapping("")
         public String BlogPage(Model model) {
@@ -44,6 +49,9 @@ public class BlogController {
         try {
             System.out.println(blogDto.toString());
             String tags = String.join(" ", blogDto.getTags());
+            Long id = dbHandler.generateSequence("blog");
+            blogDto.setId(id);
+
         }catch(Exception e){
             System.out.println("falseddddddd");
         }

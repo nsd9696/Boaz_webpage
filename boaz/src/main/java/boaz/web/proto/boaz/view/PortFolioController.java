@@ -2,6 +2,7 @@ package boaz.web.proto.boaz.view;
 
 import boaz.web.proto.boaz.local.domain.Portfolio;
 import boaz.web.proto.boaz.local.domain.PortfolioDto;
+import boaz.web.proto.boaz.local.handler.DbHandler;
 import boaz.web.proto.boaz.local.service.PortfolioLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,10 @@ public class PortFolioController {
     @Autowired
     private PortfolioLocalService portfolioLocalService;
 
+    @Autowired
+    private DbHandler dbHandler;
+
+
     @GetMapping("")
     public String PortfolioPage(Model model){
         List<Portfolio> portfolioList = portfolioLocalService.getPortfolioList();
@@ -40,6 +45,8 @@ public class PortFolioController {
 
     @PostMapping("/post")
     public String UploadPortfolio(PortfolioDto portfolioDto){
+        Long id = dbHandler.generateSequence("portfolio");
+        portfolioDto.setId(id);
         portfolioLocalService.insertPortfolio(portfolioDto);
         return "user/portfolio";
     }

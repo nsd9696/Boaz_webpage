@@ -27,6 +27,8 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.2'
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+	implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.5'
 
 	//compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	// implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'

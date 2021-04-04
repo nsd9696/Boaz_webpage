@@ -15,7 +15,6 @@ import org.springframework.web.cors.CorsUtils;
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Override
     public void configure(WebSecurity web) { // 5
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
@@ -23,7 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         http.cors().disable()
                 .csrf().disable()
                 .httpBasic().disable()
