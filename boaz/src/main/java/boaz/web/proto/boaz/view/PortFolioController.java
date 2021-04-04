@@ -26,36 +26,30 @@ public class PortFolioController {
     public String PortfolioPage(Model model){
         List<Portfolio> portfolioList = portfolioLocalService.getPortfolioList();
         model.addAttribute(portfolioList);
-
         return "user/portfolio";
     }
 
     @GetMapping("/{idx}")
     public ModelAndView PortfolioPage(@PathVariable("idx") Long id){
         Optional<Portfolio> portfolio = portfolioLocalService.getPortfolio(id);
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/portfolio_detail");
         mav.addObject("portfolio",portfolio.orElse(null));
-
         return mav;
     }
 
     @PostMapping("/post")
     public String UploadPortfolio(PortfolioDto portfolioDto){
         portfolioLocalService.insertPortfolio(portfolioDto);
-
         return "user/portfolio";
     }
 
     @GetMapping("/modify/{idx}")
     public ModelAndView PortfolioModifyPage(@PathVariable("idx") Long id) {
         Optional<Portfolio> portfolio = portfolioLocalService.getPortfolio(id);
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/portfolio_detail");
         mav.addObject("portfolio", portfolio.orElse(null));
-
         return mav;
     }
 
