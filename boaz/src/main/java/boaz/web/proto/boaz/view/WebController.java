@@ -2,31 +2,41 @@ package boaz.web.proto.boaz.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class WebController {
-    
+
     @GetMapping("/")
     public String HomePage(){
-        return "index";
+        return "user/index";
     }
 
     @GetMapping("/index")
     public String IndexPage() {
-        return "index";
+        return "user/index";
     }
 
-    @GetMapping("about")
+    @GetMapping("/about")
     public String AboutPage(){
-        return "about";
+        return "user/about";
     }
-    @GetMapping("service")
+    @GetMapping("/service")
     public String ServicePage(){
-        return "service";
+        return "user/service";
     }
 
-    @GetMapping("team")
+    @GetMapping("/team")
     public String TeamPage(){
-        return "team";
+        return "user/team";
     }
+
+
+
+    @GetMapping("/contact")
+    public String ContactPage() {
+        return "user/contact";
+    }
+
+
 }
