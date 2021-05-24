@@ -48,7 +48,7 @@
       </div>
 
       <!--logo start-->
-      <a href="index" class="logo">BOAZ <span class="lite">Admin</span></a>
+      <a href="index.html" class="logo">BOAZ <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -59,15 +59,15 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" >
+                                <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">BOAZ</span>
+                            <span class="username">Jenifer Smith</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li>
-                <a href="login"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>
@@ -84,7 +84,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="index">
+            <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -96,8 +96,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="form_blog">Form Blog</a></li>
-              <li><a class="" href="form_conference">Form Conference</a></li>
+              <li><a class="" href="form_blog.html">Form Blog</a></li>
+              <li><a class="" href="form_conference.html">Form Conference</a></li>
             </ul>
           </li>
 
@@ -108,8 +108,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="blog_table">Blog Table</a></li>
-              <li><a class="" href="conference_table">Conference Table</a></li>
+              <li><a class="" href="blog_table.html">Blog Table</a></li>
+              <li><a class="" href="conference_table.html">Conference Table</a></li>
             </ul>
           </li>
 
@@ -120,10 +120,10 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="profile">Profile</a></li>
-              <li><a class="" href="login"><span>Login Page</span></a></li>
-              <li><a class="" href="blank">Blank Page</a></li>
-              <li><a class="" href="404">404 Error</a></li>
+              <li><a class="" href="profile.html">Profile</a></li>
+              <li><a class="" href="login.html"><span>Login Page</span></a></li>
+              <li><a class="" href="blank.html">Blank Page</a></li>
+              <li><a class="" href="404.html">404 Error</a></li>
             </ul>
           </li> -->
 
@@ -140,7 +140,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-files-o"></i> Form Conference</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="icon_document_alt"></i>Forms</li>
               <li><i class="fa fa-files-o"></i>Form Conference</li>
             </ol>
@@ -158,27 +158,27 @@
                 <div class="form">
                   <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
                     <div class="form-group ">
-                      <label for="Title" class="control-label col-lg-2">Title <span class="required">*</span></label>
+                      <label for="title" class="control-label col-lg-2">Title <span class="required">*</span></label>
                       <div class="col-lg-10">
-                        <input class="form-control" id="titleId" type="text" required />
+                        <input class="form-control" id="title" type="text" required />
                       </div>
                     </div>
                     <div class="form-group ">
-                      <label for="slideurl" class="control-label col-lg-2">SlideShare url <span class="required">*</span></label>
+                      <label for="slide" class="control-label col-lg-2">SlideShare url <span class="required">*</span></label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="slideId" type="text" required />
+                        <input class="form-control " id="slide" type="text" required />
                       </div>
                     </div>
                     <div class="form-group ">
-                      <label for="youtubeUrl" class="control-label col-lg-2">Youtube url</label>
+                      <label for="youtube" class="control-label col-lg-2">Youtube url</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="youtubeId" type="text" />
+                        <input class="form-control " id="youtube" type="text" />
                       </div>
                     </div>
                     <div class="form-group ">
-                      <label for="Session" class="control-label col-lg-2">Session <span class="required">*</span></label>
+                      <label for="session" class="control-label col-lg-2">Session <span class="required">*</span></label>
                       <div class="col-lg-10">
-                        <input class="form-control" id="sessionId" type="text" required />
+                        <input class="form-control" id="session" type="text" required />
                       </div>
                     </div>
                   </form>
@@ -225,8 +225,8 @@
               <div class="panel-body">
                 <form role="form">
                   <div class="form-group">
-                    <label for="exampleInputFile">Thumbnail</label>
-                    <input type="file" id="InputFile">
+                    <label for="inputFile">Thumbnail</label>
+                    <input type="file" id="inputFile">
                   </div>
                 </form>    
               </div>
@@ -284,7 +284,7 @@
 
     // 안내문구 등록
     jQuery(window).load(function(){
-      CKEDITOR.instances["ckEditor"].setData("<p> 안내문구 </p>");
+      CKEDITOR.instances["ckEditor"].setData("<p> <b>[프로젝트 설명]</b><br>이 프로젝트는 ~ <br><br><b>[팀원]</b><br><ul><li>팀원 1</li><li>팀원 2</li><li>팀원 3</li><br></ul> </p>");
     });
     
     // 버튼 누르면 글 등록하는 함수
@@ -294,12 +294,12 @@
           type: 'post', // 명세서에 작성되어있는 type(get, post, delete, put) 넣으시면 됩니다.
           url: 'http://localhost:8080/conference/post', // 백엔드팀에서 url 드리면 http://localhost:8080 자리에 넣어주시면 됩니다.
           data: {
-            id: 1,
-            title: document.getElementById("titleId").value, // getElementById로 위에 있는 태그를 가져올 수 있어요.
-            slideShareUrl: document.getElementById("slideId").value,
-            youtubeUrl: document.getElementById("youtubeId").value,
-            session : document.getElementById("sessionId").value,
-            file: document.getElementById("InputFile").value,
+            //id: 1,
+            title: document.getElementById("title").value, // getElementById로 위에 있는 태그를 가져올 수 있어요.
+            slideShareUrl: document.getElementById("slide").value,
+            youtubeUrl: document.getElementById("youtube").value,
+            session: document.getElementById("session").value,
+            file: document.getElementById("inputFile").value,
             ckEditor: CKEDITOR.instances["ckEditor"].getData()
           },
 
